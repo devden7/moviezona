@@ -15,7 +15,7 @@ const config: Config = {
           "2xl": "1024px",
         },
       },
-      color: {
+      colors: {
         primary: {
           500: "#8A33FD",
         },
