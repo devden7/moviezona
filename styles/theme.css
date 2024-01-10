@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-black_white {
+    @apply text-black dark:text-white;
+  }
+
+  .background-dark_white {
+    @apply bg-white dark:bg-black;
+  }
+  .background-dark900_white100 {
+    @apply bg-[#F6F6F6] dark:bg-[#3C4242];
+  }
+}
