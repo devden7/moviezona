@@ -8,7 +8,7 @@ const Search = () => {
       <Input
         type="text"
         placeholder="Search movies"
-        className="ml-2 border-none bg-transparent p-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+        className="background-dark900_white100 ml-2 border-none p-0 focus-visible:ring-0 focus-visible:ring-offset-0"
       />
     </div>
   );
