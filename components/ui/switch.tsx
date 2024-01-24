@@ -25,11 +25,16 @@ const Switch = React.forwardRef<
     >
       {props.checked ? (
         <div className="flex-center h-full w-full rounded-full">
-          <Image src="/moon.svg" alt="dark mode" width={18} height={18} />
+          <Image
+            src="/assets/moon.svg"
+            alt="dark mode"
+            width={18}
+            height={18}
+          />
         </div>
       ) : (
         <div className="flex-center h-full w-full rounded-full">
-          <Image src="/sun.svg" alt="dark mode" width={19} height={19} />
+          <Image src="/assets/sun.svg" alt="dark mode" width={19} height={19} />
         </div>
       )}
     </SwitchPrimitives.Thumb>

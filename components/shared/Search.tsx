@@ -4,7 +4,7 @@ import Image from "next/image";
 const Search = () => {
   return (
     <div className="background-dark900_white100 flex-center rounded-lg pl-2">
-      <Image src="search.svg" alt="search" width={20} height={20} />
+      <Image src="/assets/search.svg" alt="search" width={20} height={20} />
       <Input
         type="text"
         placeholder="Search movies"

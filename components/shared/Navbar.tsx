@@ -30,7 +30,7 @@ const Navbar = () => {
       <header className="flex-between container h-16 gap-5">
         <Link href="/" className="flex-center gap-2">
           <Image
-            src="film-outline.svg"
+            src="/assets/film-outline.svg"
             alt="logo"
             width={50}
             height={50}

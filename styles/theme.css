@@ -7,10 +7,18 @@
     @apply text-black dark:text-white;
   }
 
+  .text-black500_white700 {
+    @apply text-black/50 dark:text-white/70;
+  }
+
   .background-dark_white {
     @apply bg-white dark:bg-black;
   }
   .background-dark900_white100 {
     @apply bg-[#F6F6F6] dark:bg-[#3C4242];
+  }
+
+  .test-responsive {
+    @apply xs:bg-purple-500 sm:bg-red-500 md:bg-green-500 lg:bg-blue-500 xl:bg-yellow-500 2xl:bg-emerald-500;
   }
 }

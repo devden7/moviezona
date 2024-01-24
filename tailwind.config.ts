@@ -21,6 +21,9 @@ const config: Config = {
           500: "#8A33FD",
         },
       },
+      screens: {
+        xs: "320px",
+      },
     },
   },
   plugins: [],
