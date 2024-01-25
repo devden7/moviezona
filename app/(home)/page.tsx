@@ -2,19 +2,17 @@ import CarouselSection from "@/components/home/CarouselSection";
 import SectionMovie from "@/components/home/SectionMovie";
 import { fetchMovies } from "@/utils";
 
-async function Home() {
+const Home = async () => {
   const page = 1;
-  const movieResult = await fetchMovies(page);
-  const isMovieResultEmpty = movieResult.length < 1 || !movieResult;
+  const results = await fetchMovies({ filter: "popularity.desc", page });
   return (
     <>
-      <CarouselSection movieList={movieResult.results.slice(0, 10)} />
-      <SectionMovie
-        movieList={movieResult.results}
-        isEmpty={isMovieResultEmpty}
-      />
+      <CarouselSection movieList={results.results.slice(0, 10)} />
+      <div className="container">
+        <SectionMovie />
+      </div>
     </>
   );
-}
+};
 
 export default Home;

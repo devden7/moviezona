@@ -44,3 +44,10 @@ export function convertToHourMinute(minutes: number): string {
 
   return `${hoursText}${minutesText}`;
 }
+
+export function formatNumberRating(numberRating: number): string {
+  return (
+    Math.floor(numberRating) +
+    (numberRating - Math.floor(numberRating))
+  ).toFixed(1);
+}

@@ -2,19 +2,28 @@
 
 import React, { useState } from "react";
 import { Button } from "../ui/button";
-import { fetchMovies } from "@/utils";
+import { fetchMovies, searchMovies } from "@/utils";
 import Link from "next/link";
 import Image from "next/image";
-import { convertDateToMonthYear } from "@/lib/utils";
+import { convertDateToMonthYear, formatNumberRating } from "@/lib/utils";
 
-const LoadMore = () => {
+interface Props {
+  typePage: string;
+  keyParams?: string | string;
+  filter?: string;
+}
+
+const LoadMore = ({ typePage, keyParams, filter }: Props) => {
   const [data, setData] = useState<any>([]);
   const [page, setPage] = useState(2);
 
   const fetchDataWithBtn = async () => {
-    console.log(page);
-    const fetchData = await fetchMovies(page);
-    console.log(fetchData);
+    let fetchData: any;
+    if (typePage === "homePage") {
+      fetchData = await fetchMovies({ filter, page });
+    } else {
+      fetchData = await searchMovies(keyParams, page);
+    }
     setPage((prev) => prev + 1);
     setData((prev: any) => [...prev, ...fetchData.results]);
   };
@@ -29,10 +38,17 @@ const LoadMore = () => {
                 className={`relative flex h-64 items-end overflow-hidden rounded-xl duration-300 hover:-translate-y-2 hover:transition`}
               >
                 <Image
-                  src={`https://image.tmdb.org/t/p/w500/${list.poster_path}`}
+                  src={
+                    list.poster_path === null
+                      ? "/assets/no image.jpg"
+                      : `https://image.tmdb.org/t/p/w500/${list.poster_path}`
+                  }
                   alt={list.title}
                   fill={true}
                   sizes="100%"
+                  style={{
+                    objectFit: "cover",
+                  }}
                 />
                 <div className="w-full rounded-b-xl bg-none backdrop-blur-sm">
                   <div className="flex-between w-full border-t-[1px] border-black px-2 py-3 text-white xs:gap-3">
@@ -48,7 +64,9 @@ const LoadMore = () => {
                       >
                         <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
                       </svg>
-                      <p className="text-sm">{list.vote_average}</p>
+                      <p className="text-sm">
+                        {formatNumberRating(list.vote_average)}
+                      </p>
                     </div>
                     <p className="text-sm font-semibold">
                       {convertDateToMonthYear(list.release_date)}

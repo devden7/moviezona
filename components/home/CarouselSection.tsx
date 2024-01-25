@@ -46,7 +46,7 @@ const CarouselSection = ({ movieList }: Props) => {
         }}
       >
         <CarouselContent className="items-center">
-          {movieList.map((item, index) => {
+          {movieList?.map((item, index) => {
             return (
               <CarouselItem
                 key={item.id}
