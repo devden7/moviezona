@@ -7,6 +7,7 @@ import { fetchSingleMovie } from "@/utils";
 const page = async ({ params }: any) => {
   const { id } = params;
   const results = await fetchSingleMovie({ id });
+
   return (
     <>
       <div className="container">

@@ -1,9 +1,5 @@
-import { ParamsSingleMovie } from "@/types";
+import { ParamsFetch, ParamsSearchMovies, ParamsSingleMovie } from "@/types";
 
-interface ParamsFetch {
-  filter?: string;
-  page: number;
-}
 export const fetchMovies = async ({ filter, page }: ParamsFetch) => {
   const options = {
     method: "GET",
@@ -42,7 +38,7 @@ export const fetchSingleMovie = async (params: ParamsSingleMovie) => {
   return data;
 };
 
-export const searchMovies = async (query: string | undefined, page: number) => {
+export const searchMovies = async ({ query, page }: ParamsSearchMovies) => {
   const options = {
     method: "GET",
     headers: {

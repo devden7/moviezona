@@ -103,7 +103,7 @@ const SectionMovie = () => {
         ))}
       </div>
 
-      <LoadMore typePage="homePage" filter={filter} />
+      {data.length !== 0 && <LoadMore typePage="homePage" filter={filter} />}
     </section>
   );
 };

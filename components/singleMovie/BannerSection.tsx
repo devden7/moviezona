@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import { convertDateToYear, convertToHourMinute } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 
 const BannerSection = ({ movieDetail }: any) => {
   const {
@@ -26,7 +27,10 @@ const BannerSection = ({ movieDetail }: any) => {
     <section>
       <div className="mb-5 mt-10">
         <p className="text-xl font-semibold tracking-wide">
-          Home &gt; <span>{original_title}</span>
+          <span className="text-blue-500 hover:text-blue-900">
+            <Link href="/">Discover Movies </Link>
+          </span>
+          &gt; {original_title}
         </p>
       </div>
       <div className="relative overflow-hidden rounded-3xl px-10 py-6 md:p-3">
