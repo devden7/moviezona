@@ -22,7 +22,7 @@ const LoadMore = ({ typePage, keyParams, filter }: Props) => {
     if (typePage === "homePage") {
       fetchData = await fetchMovies({ filter, page });
     } else {
-      fetchData = await searchMovies(keyParams, page);
+      fetchData = await searchMovies({ query: keyParams, pageNumber: page });
     }
     setPage((prev) => prev + 1);
     setData((prev: any) => [...prev, ...fetchData.results]);

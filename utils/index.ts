@@ -38,7 +38,10 @@ export const fetchSingleMovie = async (params: ParamsSingleMovie) => {
   return data;
 };
 
-export const searchMovies = async ({ query, page }: ParamsSearchMovies) => {
+export const searchMovies = async ({
+  query,
+  pageNumber,
+}: ParamsSearchMovies) => {
   const options = {
     method: "GET",
     headers: {
@@ -49,7 +52,7 @@ export const searchMovies = async ({ query, page }: ParamsSearchMovies) => {
   };
 
   const result = await fetch(
-    `https://api.themoviedb.org/3/search/movie?query=${query}&page=${page}`,
+    `https://api.themoviedb.org/3/search/movie?query=${query}&page=${pageNumber}`,
     options
   );
   const data = await result.json();

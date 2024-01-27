@@ -10,7 +10,7 @@ interface Props {
 }
 
 const page = async ({ searchParams }: Props) => {
-  const results = await searchMovies(searchParams.q, 1);
+  const results = await searchMovies({ query: searchParams.q, pageNumber: 1 });
   return (
     <section className="mt-10">
       <div className="container">
@@ -18,7 +18,7 @@ const page = async ({ searchParams }: Props) => {
           Show Results For : &quot;{searchParams.q}&quot;
         </h1>
 
-        {results.results.length > 0 ? (
+        {results.results?.length > 0 ? (
           <div className="flex-between mt-10 flex-wrap gap-y-5 sm:gap-y-12">
             {results.results.map((list: any) => (
               <Link href={`/movie/${list.id}`} key={list.id}>
@@ -87,7 +87,7 @@ const page = async ({ searchParams }: Props) => {
           </div>
         )}
 
-        {results.results.length >= 20 && (
+        {results.results?.length >= 20 && (
           <LoadMore typePage="searchPage" keyParams={searchParams.q} />
         )}
       </div>

@@ -9,5 +9,5 @@ export interface ParamsFetch {
 
 export interface ParamsSearchMovies {
   query: string | undefined;
-  page: number;
+  pageNumber: number;
 }
