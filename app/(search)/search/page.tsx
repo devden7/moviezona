@@ -12,7 +12,7 @@ interface Props {
 const page = async ({ searchParams }: Props) => {
   const results = await searchMovies({ query: searchParams.q, pageNumber: 1 });
   return (
-    <section className="mt-10">
+    <section className="my-10">
       <div className="container">
         <h1 className="text-4xl font-bold xl:text-3xl">
           Show Results For : &quot;{searchParams.q}&quot;

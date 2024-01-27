@@ -35,7 +35,7 @@ const SectionMovie = () => {
     );
   };
   return (
-    <section className="mt-5">
+    <section className="mb-10 mt-5">
       <div className="flex-between mt-10">
         <h1 className="text-4xl font-bold xl:text-3xl">Discover Movies</h1>
         <Select onValueChange={btnFilter}>

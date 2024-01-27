@@ -6,7 +6,7 @@ interface Props {
 
 const CastSection = ({ cast }: Props) => {
   return (
-    <section>
+    <section className="mb-10">
       <h2 className="mt-10 text-4xl font-bold xl:text-3xl">Cast</h2>
       <div className="mt-8 flex flex-wrap gap-y-7 xs:gap-x-5 sm:gap-y-12 md:gap-x-3 md:gap-y-6">
         {cast.map((item) => (
